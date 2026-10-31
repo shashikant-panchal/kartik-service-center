@@ -1,0 +1,34 @@
+{
+  "name": "kartik-service-center",
+  "version": "1.0.0",
+  "description": "High-end automotive garage website for Kartik Service Centre in Chitguppa featuring interactive Three.js 3D machinery, floating metal tools, and live workshop photo gallery.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 .",
+    "validate": "node -c assets/js/app.js",
+    "test": "node -c assets/js/app.js"
+  },
+  "keywords": [
+    "automotive",
+    "garage",
+    "workshop",
+    "threejs",
+    "webgl",
+    "3d",
+    "two-wheeler",
+    "motorcycle",
+    "chitguppa",
+    "karnataka"
+  ],
+  "author": "Kartik Service Centre & Shashikant Panchal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shashikant-panchal/kartik-service-center.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shashikant-panchal/kartik-service-center/issues"
+  },
+  "homepage": "https://github.com/shashikant-panchal/kartik-service-center#readme"
+}
