@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartik Service Centre | Two-Wheeler Workshop Chitguppa</title>
+  <meta name="description" content="Welcome to Kartik Service Centre in Chitguppa - Two-wheeler servicing, engine overhauls, high-pressure water wash, and puncture repairs by Kartik, experienced mechanic.">
+
+  <!-- Custom Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cobalt: '#2563eb',
+              navy: '#0f172a',
+              amber: '#f59e0b'
+            },
+            pastel: {
+              blue: '#eff6ff',
+              mint: '#ecfdf5',
+              amber: '#fffbeb',
+              purple: '#f5f3ff'
+            }
+          },
+          fontFamily: {
+            cyber: ['Orbitron', 'monospace'],
+            tech: ['Space Grotesk', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Modern Light Theme & Pastel Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] text-slate-800 selection:bg-blue-600 selection:text-white">
+
+  <!-- Floating 3D Tools Canvas (15 Dedicated Workshop Tools) -->
+  <canvas id="floating-tools-canvas"></canvas>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (CLEAN & COMPACT, NO NOISES ON RIGHT)
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/94 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      
+      <!-- Brand Logo Emblem -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl overflow-hidden p-0.5 shadow-sm shadow-blue-500/10 group-hover:scale-105 transition-transform duration-300">
+          <img src="logo.svg" alt="Kartik Service Centre Logo" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <span class="font-cyber font-black text-sm sm:text-base tracking-wider text-slate-900 flex items-center gap-1">
+            KARTIK <span class="text-blue-600">SERVICE CENTRE</span>
+          </span>
+          <span class="text-[9px] font-tech text-slate-500 tracking-wider block uppercase">
+            ಕಾರ್ತಿಕ ಸರ್ವಿಸ್ ಸೆಂಟರ್ • Chitguppa
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links (Clean & Spacious) -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-tech font-semibold text-slate-600">
+        <a href="#hero" class="hover:text-blue-600 transition-colors">Home</a>
+        <a href="#owner" class="hover:text-blue-600 transition-colors">Meet Kartik</a>
+        <a href="#machinery" class="hover:text-blue-600 transition-colors">Our Machines</a>
+        <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+        <a href="#our-work" class="hover:text-blue-600 transition-colors">Our Work</a>
+        <a href="#banner-showcase" class="hover:text-blue-600 transition-colors">Workshop Banner</a>
+        <a href="#location" class="hover:text-blue-600 transition-colors">Location & Contact</a>
+      </nav>
+
+      <!-- Right Area: Clean & Empty (No chat icon noises) -->
+      <div class="flex items-center gap-2">
+        <button id="mobile-menu-toggle" class="lg:hidden p-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors" aria-label="Toggle Navigation">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-menu" class="hidden lg:hidden bg-white/98 border-b border-slate-200 px-5 py-3 space-y-2 font-tech shadow-lg text-xs">
+      <a href="#hero" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Home</a>
+      <a href="#owner" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Meet Kartik</a>
+      <a href="#machinery" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Our Machines</a>
+      <a href="#services" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Services</a>
+      <a href="#our-work" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Our Work</a>
+      <a href="#banner-showcase" class="block text-slate-800 hover:text-blue-600 py-1 border-b border-slate-100">Workshop Banner</a>
+      <a href="#location" class="block text-slate-800 hover:text-blue-600 py-1">Location & Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-14">
+
+    <!-- =========================================================================
+         SECTION A: HERO BANNER (ULTRA-COMPACT VERTICAL HEIGHT)
+         ========================================================================= -->
+    <section id="hero" class="relative flex items-center justify-center overflow-hidden py-4 sm:py-5 light-grid">
+      
+      <!-- Subtle Pastel Ambient Blobs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[460px] h-[180px] bg-blue-500/8 rounded-full blur-[80px] pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10 space-y-2.5">
+        
+        <!-- Custom Emblem Centerpiece -->
+        <div class="flex justify-center">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl p-0.5 bg-white border border-slate-200 shadow-md shadow-slate-200/50 hover:scale-105 transition-transform duration-300">
+            <img src="logo.svg" alt="Kartik Service Centre Official Emblem" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- Headline directly: WELCOME TO KARTIK SERVICE CENTRE -->
+        <div class="space-y-1">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black font-cyber tracking-tight leading-tight text-slate-900">
+            WELCOME TO <br class="sm:hidden">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700">
+              KARTIK SERVICE CENTRE
+            </span>
+          </h1>
+
+          <div class="text-[11px] sm:text-xs font-cyber text-blue-700 font-bold tracking-wider uppercase">
+            ಕಾರ್ತಿಕ ಸರ್ವಿಸ್ ಸೆಂಟರ್ • Chitguppa
+          </div>
+
+          <p class="text-xs sm:text-sm font-tech text-slate-600 max-w-lg mx-auto leading-snug pt-0.5">
+            Your trusted automotive garage in Chitguppa. Complete mechanical care, precision engine overhauls, high-pressure foam wash, and puncture repairs by Kartik, experienced mechanic.
+          </p>
+        </div>
+
+        <!-- Clean Pastel Garage Badges -->
+        <div class="pt-1.5 grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-2xl mx-auto text-left font-tech">
+          <div class="light-card p-2 flex items-center gap-2">
+            <div class="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+              <i data-lucide="map-pin" class="w-3 h-3"></i>
+            </div>
+            <div>
+              <h4 class="text-[10px] font-bold text-slate-800 uppercase">Chitguppa Main Road</h4>
+              <p class="text-[9px] text-slate-500">Near Neharu Chowk</p>
+            </div>
+          </div>
+
+          <div class="light-card p-2 flex items-center gap-2">
+            <div class="w-6 h-6 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
+              <i data-lucide="wrench" class="w-3 h-3"></i>
+            </div>
+            <div>
+              <h4 class="text-[10px] font-bold text-slate-800 uppercase">Experienced Mechanic</h4>
+              <p class="text-[9px] text-slate-500">Hands-on care by Kartik</p>
+            </div>
+          </div>
+
+          <div class="light-card p-2 flex items-center gap-2">
+            <div class="w-6 h-6 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+              <i data-lucide="shield-check" class="w-3 h-3"></i>
+            </div>
+            <div>
+              <h4 class="text-[10px] font-bold text-slate-800 uppercase">Genuine Spares</h4>
+              <p class="text-[9px] text-slate-500">100% original quality</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION B: MEET THE OWNER (KARTIK - EXPERIENCED MECHANIC)
+         ========================================================================= -->
+    <section id="owner" class="py-4 sm:py-5 relative overflow-hidden bg-slate-50 border-y border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div class="light-card p-3 sm:p-5 max-w-3xl mx-auto border-slate-200">
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+            
+            <!-- Frame for Kartik's Photo -->
+            <div class="md:col-span-5 flex justify-center">
+              <div class="kartik-frame-light w-32 h-42 sm:w-40 sm:h-48 overflow-hidden shadow-sm">
+                <!-- TODO: Insert Kartik Photo Here -->
+                <img 
+                  src="Kartik.jpeg" 
+                  alt="Kartik - Experienced Mechanic at Kartik Service Centre Chitguppa" 
+                  class="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+            <!-- Spotlight Content -->
+            <div class="md:col-span-7 space-y-2 text-left">
+              
+              <div class="inline-flex items-center gap-1.5 pastel-badge-amber">
+                <i data-lucide="award" class="w-3 h-3"></i>
+                <span>FOUNDER & HEAD MECHANIC</span>
+              </div>
+
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold font-cyber text-slate-900 tracking-tight">
+                  KARTIK
+                </h2>
+                <p class="text-xs font-tech text-blue-600 font-semibold tracking-wide uppercase mt-0.5">
+                  Experienced Mechanic
+                </p>
+              </div>
+
+              <div class="space-y-1 font-tech text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p>
+                  "Welcome to Kartik Service Centre. Every motorcycle or scooter that enters my garage receives thorough, honest, hands-on mechanical care. From subtle engine diagnostics to complete cylinder head overhauls, I personally service every bike."
+                </p>
+                <p class="text-slate-500 text-[11px]">
+                  Near Neharu Chowk Main Road in Chitguppa. Honest diagnostics, genuine parts, and quick turnaround.
+                </p>
+              </div>
+
+              <!-- Quick Highlights -->
+              <div class="grid grid-cols-2 gap-2 font-tech pt-0.5">
+                <div class="p-1.5 sm:p-2 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="text-[9px] text-slate-500 block uppercase font-bold">Specialization</span>
+                  <span class="text-[11px] font-bold text-slate-800">Two-Wheeler Overhauls</span>
+                </div>
+                <div class="p-1.5 sm:p-2 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="text-[9px] text-slate-500 block uppercase font-bold">Promise</span>
+                  <span class="text-[11px] font-bold text-slate-800">Personal Hands-On Care</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION C: OUR ADVANCED 3D MACHINERY & TOOLS SHOWCASE
+         ========================================================================= -->
+    <section id="machinery" class="py-4 sm:py-5 relative overflow-hidden bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3.5">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-1">
+          <div class="pastel-badge-blue">
+            <i data-lucide="cpu" class="w-3 h-3"></i>
+            <span>3D INTERACTIVE WORKSHOP HARDWARE</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-cyber text-slate-900 tracking-tight">
+            OUR MACHINERY & TOOLS SHOWCASE
+          </h2>
+          <p class="text-xs font-tech text-slate-600">
+            Click, drag, and rotate the 3D models below. Click "Inspect 3D" to open full studio view.
+          </p>
+        </div>
+
+        <!-- 3D Machinery Grid (6 Machines) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          
+          <!-- Machine 1: Metro Super Compressor -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-amber text-[9px]">PNEUMATICS</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                Metro Super Compressor
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                Twin-cylinder cast iron reciprocating air compressor providing continuous 140 PSI high-pressure air for pneumatic tools and tires.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="compressor"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">5.0 HP • 200L Tank</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="compressor">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 2: Car & Bike Washer -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-blue text-[9px]">HYDRO-JET SYSTEM</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                High-Pressure Washer
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                Industrial triplex plunger brass pump delivering 160 BAR water jets to blast off deep chain grease and caked mud.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="washer"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">160 BAR • Brass Jet</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="washer">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 3: Air Impact Gun -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-mint text-[9px]">FASTENING TOOL</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                Pneumatic Air Gun
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                Twin-hammer 1/2" drive pneumatic impact wrench for effortless removal of wheel axle nuts and rusted clutch bolts.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="airgun"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">850 Nm Peak Torque</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="airgun">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 4: Heavy-Duty Drill -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-purple text-[9px]">DRILLING & REAMING</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                Electric Servicing Drill
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                High-torque 800W electric workshop drill with 13mm steel chuck for stripped thread repair, reaming, and bracket fabrication.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="drill"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">800W • 13mm Steel Chuck</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="drill">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 5: High-Speed Angle Grinder -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-amber text-[9px]">METAL FINISHING</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                Angle Grinder
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                11,000 RPM precision cutter and deburring tool for smoothing welds, fabricating exhaust mounts, and stripping corrosion.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="grinder"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">11,000 RPM • 4-Inch Disc</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="grinder">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 6: Digital Battery Charger -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="pastel-badge-mint text-[9px]">ELECTRICAL</span>
+                <span class="text-[9px] font-tech text-slate-400">Drag to 3D Orbit</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold font-cyber text-slate-900 group-hover:text-blue-600 transition-colors">
+                Rapid Battery Charger
+              </h3>
+              <p class="text-[11px] font-tech text-slate-500 line-clamp-2">
+                Intelligent multi-stage 12V pulse charger with desulfation circuitry to rejuvenate deeply discharged motorcycle batteries.
+              </p>
+            </div>
+
+            <!-- 3D Canvas Box -->
+            <div class="canvas-3d-container my-0.5" data-machine="charger"></div>
+
+            <div class="pt-1.5 flex items-center justify-between border-t border-slate-100">
+              <span class="text-[11px] font-tech font-bold text-slate-700">12V Pulse Diagnostic</span>
+              <button class="inspect-machine-btn text-xs font-tech font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer" data-machine="charger">
+                <span>Inspect 3D</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION D: SERVICES PROVIDED (COMPACT CARDS, NO PRICES)
+         ========================================================================= -->
+    <section id="services" class="py-4 sm:py-5 relative overflow-hidden bg-slate-50 border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3.5">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-1">
+          <div class="pastel-badge-mint">
+            <i data-lucide="wrench" class="w-3 h-3"></i>
+            <span>EXPERT TWO-WHEELER REPAIRS</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-cyber text-slate-900 tracking-tight">
+            SERVICES PROVIDED
+          </h2>
+          <p class="text-xs font-tech text-slate-600">
+            Comprehensive mechanical solutions for all motorcycles and scooters in Chitguppa.
+          </p>
+        </div>
+
+        <!-- Services Grid (4 Cards - No Prices) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          
+          <!-- Service 1: General Service -->
+          <div class="light-card p-3.5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+              <i data-lucide="settings" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="pastel-badge-blue text-[9px] mb-0.5">ROUTINE CARE</span>
+              <h3 class="text-sm font-bold font-cyber text-slate-900">General Service</h3>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500 leading-relaxed">
+              Complete mechanical tune-up, engine oil flush, spark plug check, chain slack adjustment, and brake cable tensioning.
+            </p>
+            <ul class="text-[11px] font-tech text-slate-600 space-y-1 pt-1 border-t border-slate-100">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> Engine Oil Flush</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> Chain Degrease & Lube</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> Brake Caliper Tuning</li>
+            </ul>
+          </div>
+
+          <!-- Service 2: Engine Service -->
+          <div class="light-card p-3.5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600">
+              <i data-lucide="gauge" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="pastel-badge-amber text-[9px] mb-0.5">HEAVY MECHANICAL</span>
+              <h3 class="text-sm font-bold font-cyber text-slate-900">Engine Service</h3>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500 leading-relaxed">
+              Precision engine rebuilds, cylinder re-boring, piston ring replacement, camshaft timing, and clutch plate teardowns.
+            </p>
+            <ul class="text-[11px] font-tech text-slate-600 space-y-1 pt-1 border-t border-slate-100">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-amber-600"></i> Cylinder & Piston Rebuild</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-amber-600"></i> Valve Clearance Lapping</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-amber-600"></i> Clutch & Gearbox Teardown</li>
+            </ul>
+          </div>
+
+          <!-- Service 3: Water Service -->
+          <div class="light-card p-3.5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+              <i data-lucide="droplet" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="pastel-badge-blue text-[9px] mb-0.5">DEEP FOAM WASH</span>
+              <h3 class="text-sm font-bold font-cyber text-slate-900">Water Service</h3>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500 leading-relaxed">
+              High-pressure 160 BAR hydro-jet washing with active snow foam shampoo, underbody degreasing, and pneumatic blow dry.
+            </p>
+            <ul class="text-[11px] font-tech text-slate-600 space-y-1 pt-1 border-t border-slate-100">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> 160 BAR Mud Blasting</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> Active Snow Foam Coat</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-blue-600"></i> High-Velocity Air Dry</li>
+            </ul>
+          </div>
+
+          <!-- Service 4: Puncture Service -->
+          <div class="light-card p-3.5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+              <i data-lucide="disc" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="pastel-badge-mint text-[9px] mb-0.5">RAPID TYRE REPAIR</span>
+              <h3 class="text-sm font-bold font-cyber text-slate-900">Puncture Service</h3>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500 leading-relaxed">
+              Fast emergency tubeless tire puncture patching, inner tube vulcanization, valve pin replacements, and digital PSI calibration.
+            </p>
+            <ul class="text-[11px] font-tech text-slate-600 space-y-1 pt-1 border-t border-slate-100">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-600"></i> Tubeless Strip Sealing</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-600"></i> Tube Patch Vulcanizing</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-600"></i> Digital Pressure Fill</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION E: OUR WORK (HORIZONTAL CAROUSEL SCROLL + "VIEW ALL" GRID TOGGLE)
+         ========================================================================= -->
+    <section id="our-work" class="py-4 sm:py-5 relative overflow-hidden bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
+        
+        <!-- Section Header with View Mode Switch & Arrows -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+          <div class="space-y-1 text-left">
+            <div class="pastel-badge-purple">
+              <i data-lucide="camera" class="w-3 h-3"></i>
+              <span>LIVE WORKSHOP CRAFTSMANSHIP</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold font-cyber text-slate-900 tracking-tight">
+              OUR WORK
+            </h2>
+            <p class="text-xs font-tech text-slate-600">
+              Scroll horizontally through live workshop repairs, or toggle "View All" for the full photo gallery.
+            </p>
+          </div>
+
+          <!-- Carousel Controls & View All Toggle -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="gallery-view-mode-btn" class="btn-secondary py-1.5 px-3 text-xs inline-flex items-center gap-1.5">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+              <span>View All (16 Photos)</span>
+            </button>
+
+            <div class="flex items-center gap-1">
+              <button id="carousel-prev-btn" class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center transition-colors shadow-sm" aria-label="Previous Photo">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button id="carousel-next-btn" class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center transition-colors shadow-sm" aria-label="Next Photo">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 pt-0.5 border-b border-slate-100 pb-2">
+          <button class="gallery-filter-btn active py-1 px-3 rounded-lg font-tech text-xs font-bold transition-all bg-blue-600 text-white shadow-sm cursor-pointer" data-filter="all">
+            All (16)
+          </button>
+          <button class="gallery-filter-btn py-1 px-3 rounded-lg font-tech text-xs font-bold transition-all bg-white text-slate-700 border border-slate-200 hover:border-slate-300 shadow-sm cursor-pointer" data-filter="engine">
+            Engine Overhauls
+          </button>
+          <button class="gallery-filter-btn py-1 px-3 rounded-lg font-tech text-xs font-bold transition-all bg-white text-slate-700 border border-slate-200 hover:border-slate-300 shadow-sm cursor-pointer" data-filter="bike">
+            Bike Servicing
+          </button>
+          <button class="gallery-filter-btn py-1 px-3 rounded-lg font-tech text-xs font-bold transition-all bg-white text-slate-700 border border-slate-200 hover:border-slate-300 shadow-sm cursor-pointer" data-filter="tools">
+            Workshop Tools
+          </button>
+        </div>
+
+        <!-- Horizontal Carousel Track -->
+        <div id="gallery-carousel-track" class="flex overflow-x-auto snap-x no-scrollbar gap-3 py-1.5 transition-all duration-300">
+          
+          <!-- Image 1 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.58 PM.jpeg" alt="Cylinder Head & Camshaft Teardown" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Cylinder Head Overhaul</h4>
+              <p class="text-[10px] font-tech text-slate-500">Precision valve & camshaft inspection</p>
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.51 PM (1).jpeg" alt="Royal Enfield Clutch Teardown" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Royal Enfield Clutch Pack</h4>
+              <p class="text-[10px] font-tech text-slate-500">Primary drive teardown & renewal</p>
+            </div>
+          </div>
+
+          <!-- Image 3 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="tools">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.51 PM.jpeg" alt="Metro Super Compressor in Workshop" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Metro Super Compressor</h4>
+              <p class="text-[10px] font-tech text-slate-500">High-volume pneumatic station</p>
+            </div>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="tools">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.59 PM (1).jpeg" alt="Workshop Tool Wall & Spanners" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Master Tool Wall</h4>
+              <p class="text-[10px] font-tech text-slate-500">Organized pana and spanner array</p>
+            </div>
+          </div>
+
+          <!-- Image 5 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="bike">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.57 PM (1).jpeg" alt="Bullet Front End Suspension" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Bullet Fork Servicing</h4>
+              <p class="text-[10px] font-tech text-slate-500">Front suspension oil and seal refresh</p>
+            </div>
+          </div>
+
+          <!-- Image 6 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="bike">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.57 PM.jpeg" alt="Bajaj Pulsar Teardown" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Bajaj Pulsar Tuning</h4>
+              <p class="text-[10px] font-tech text-slate-500">Wiring, fuel line and spark inspection</p>
+            </div>
+          </div>
+
+          <!-- Image 7 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.59 PM.jpeg" alt="Hero Splendor Engine Case" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Splendor Crankcase</h4>
+              <p class="text-[10px] font-tech text-slate-500">Full block cleaning & new gasket set</p>
+            </div>
+          </div>
+
+          <!-- Image 8 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.54 PM.jpeg" alt="Royal Enfield Bullet Engine Overhaul" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Bullet Engine Build</h4>
+              <p class="text-[10px] font-tech text-slate-500">Piston clearance and rocker adjustment</p>
+            </div>
+          </div>
+
+          <!-- Image 9 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.54 PM (1).jpeg" alt="Connecting Rod & Bearing" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Connecting Rod Service</h4>
+              <p class="text-[10px] font-tech text-slate-500">Micrometer bearing clearance check</p>
+            </div>
+          </div>
+
+          <!-- Image 10 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.56 PM.jpeg" alt="Crankshaft Assembly" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Crankshaft Alignment</h4>
+              <p class="text-[10px] font-tech text-slate-500">Dial indicator runout balancing</p>
+            </div>
+          </div>
+
+          <!-- Image 11 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.56 PM (1).jpeg" alt="Gearbox Pinion Stack" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">5-Speed Gearbox Stack</h4>
+              <p class="text-[10px] font-tech text-slate-500">Selector fork & dog mesh inspection</p>
+            </div>
+          </div>
+
+          <!-- Image 12 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="bike">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.58 PM (1).jpeg" alt="Rear Wheel Hub & Drum Brakes" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Rear Wheel Hub & Drum</h4>
+              <p class="text-[10px] font-tech text-slate-500">Brake shoe deglazing & new spring fit</p>
+            </div>
+          </div>
+
+          <!-- Image 13 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="bike">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.45 PM.jpeg" alt="Scooter Transmission CVT Service" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Scooter CVT Variator</h4>
+              <p class="text-[10px] font-tech text-slate-500">Roller weights & drive belt renewal</p>
+            </div>
+          </div>
+
+          <!-- Image 14 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="engine">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.49 PM (1).jpeg" alt="Piston Ring Fitting" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Piston Ring Installation</h4>
+              <p class="text-[10px] font-tech text-slate-500">Staggered ring end-gap fitting</p>
+            </div>
+          </div>
+
+          <!-- Image 15 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="bike">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.50 PM (1).jpeg" alt="Spark Plug & Carburetor Tune" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Carburetor Calibration</h4>
+              <p class="text-[10px] font-tech text-slate-500">Pilot jet cleanup and fuel-air sync</p>
+            </div>
+          </div>
+
+          <!-- Image 16 -->
+          <div class="gallery-card carousel-card light-card overflow-hidden group cursor-pointer" data-category="tools">
+            <div class="relative h-36 sm:h-40 overflow-hidden">
+              <img src="WhatsApp Image 2026-10-31 at 9.39.52 PM.jpeg" alt="Precision Torque Wrench & Calipers" class="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span class="text-white text-[11px] font-tech font-bold flex items-center gap-1"><i data-lucide="zoom-in" class="w-3 h-3"></i> Click to Zoom</span>
+              </div>
+            </div>
+            <div class="p-2.5 bg-white">
+              <h4 class="text-xs font-bold font-cyber text-slate-800">Precision Measurement</h4>
+              <p class="text-[10px] font-tech text-slate-500">Torque wrench & micrometer checks</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION F: WORKSHOP OFFICIAL BANNER (COMPACT SHOWCASE)
+         ========================================================================= -->
+    <section id="banner-showcase" class="py-3 sm:py-4 relative overflow-hidden bg-slate-50 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-2.5">
+        
+        <div class="text-center max-w-lg mx-auto space-y-1">
+          <div class="pastel-badge-amber">
+            <i data-lucide="flag" class="w-3 h-3"></i>
+            <span>AUTHENTIC GARAGE SIGNAGE</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-bold font-cyber text-slate-900">
+            WORKSHOP OFFICIAL BANNER
+          </h2>
+          <p class="text-[11px] font-tech text-slate-600">
+            Official outdoor board of Kartik Service Centre Chitguppa.
+          </p>
+        </div>
+
+        <!-- Banner Frame -->
+        <div class="light-card p-2 sm:p-2.5 overflow-hidden shadow-md border-slate-200">
+          <div class="rounded-lg overflow-hidden border border-slate-200">
+            <!-- TODO: Insert Hero Workshop Banner Image Here -->
+            <img 
+              src="ShopBanner.jpeg" 
+              alt="Kartik Service Centre Official Workshop Banner" 
+              class="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
+            />
+          </div>
+          <div class="pt-1.5 flex flex-wrap items-center justify-between text-[11px] font-tech text-slate-500 px-1 gap-1">
+            <span class="font-bold text-slate-700">ಕಾರ್ತಿಕ ಸರ್ವಿಸ್ ಸೆಂಟರ್ • Official Workshop Board</span>
+            <span>Chitguppa Main Road, Near Neharu Chowk</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION G: LOCATION & CONTACT (WITH STOREFRONT & VISITING CARD)
+         ========================================================================= -->
+    <section id="location" class="py-4 sm:py-5 relative overflow-hidden bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3.5">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-1">
+          <div class="pastel-badge-mint">
+            <i data-lucide="map-pin" class="w-3 h-3"></i>
+            <span>VISIT OUR WORKSHOP</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-cyber text-slate-900 tracking-tight">
+            LOCATION & CONTACT
+          </h2>
+          <p class="text-xs font-tech text-slate-600">
+            Conveniently located on Chitguppa Main Road, Near Neharu Chowk.
+          </p>
+        </div>
+
+        <!-- Shopfront Photo & Official Business Card (Clean 2-Column Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto items-stretch">
+          
+          <!-- Real Workshop Storefront Photo -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between">
+            <div class="space-y-1.5">
+              <span class="pastel-badge-blue text-[9px]">WORKSHOP FRONTAGE</span>
+              <div class="rounded-lg overflow-hidden border border-slate-200 h-52 sm:h-60">
+                <!-- TODO: Insert Shopfront Photo Here -->
+                <img 
+                  src="WhatsApp Image 2026-10-31 at 9.39.50 PM.jpeg" 
+                  alt="Kartik Service Centre Shopfront Entrance on Chitguppa Main Road" 
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500">
+              Direct entrance from Chitguppa Main Road, Near Neharu Chowk.
+            </p>
+          </div>
+
+          <!-- Official Visiting Card -->
+          <div class="light-card p-3 space-y-2 flex flex-col justify-between">
+            <div class="space-y-1.5">
+              <span class="pastel-badge-amber text-[9px]">OFFICIAL BUSINESS CARD</span>
+              <div class="rounded-lg overflow-hidden border border-slate-200">
+                <!-- TODO: Insert Garage Card / Signage Image Here -->
+                <img 
+                  src="ShopCard.jpeg" 
+                  alt="Kartik Service Centre Official Printed Visiting Card" 
+                  class="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <p class="text-[11px] font-tech text-slate-500">
+              Official printed card with full contact details & workshop credentials.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       ENHANCED NORMAL FOOTER (CLEAN, NO REDUNDANT ADDRESS CLUTTER)
+       ========================================================================= -->
+  <footer class="bg-white border-t border-slate-200 py-4 sm:py-5 relative z-10 font-tech">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+      
+      <!-- Clean 3-Column Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+        
+        <!-- Column 1: Brand & Workshop Summary (5 cols) -->
+        <div class="md:col-span-5 space-y-2 text-left">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl overflow-hidden p-0.5 border border-slate-200 shadow-sm">
+              <img src="logo.svg" alt="Kartik Service Centre Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h4 class="font-cyber font-black text-slate-900 text-sm tracking-wide">
+                KARTIK <span class="text-blue-600">SERVICE CENTRE</span>
+              </h4>
+              <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                ಕಾರ್ತಿಕ ಸರ್ವಿಸ್ ಸೆಂಟರ್ • Chitguppa
+              </p>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed max-w-md">
+            Dedicated two-wheeler repair and servicing workshop in Chitguppa by Kartik, experienced mechanic. Complete engine overhauls, high-pressure foam wash & genuine spares.
+          </p>
+
+          <!-- Badges -->
+          <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span class="pastel-badge-amber text-[9px]">
+              <i data-lucide="wrench" class="w-2.5 h-2.5"></i> Experienced Mechanic
+            </span>
+            <span class="pastel-badge-mint text-[9px]">
+              <i data-lucide="shield-check" class="w-2.5 h-2.5"></i> 100% Genuine Spares
+            </span>
+          </div>
+        </div>
+
+        <!-- Column 2: Direct Contact (3 cols) -->
+        <div class="md:col-span-3 space-y-1.5 text-left">
+          <h5 class="font-cyber font-bold text-slate-900 text-[11px] uppercase tracking-wider">
+            Contact Lines
+          </h5>
+          <div class="space-y-1 text-xs">
+            <div class="flex items-center gap-2 text-slate-800">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
+              <span class="font-bold">6363176145</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-600 text-[11px]">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+              <span>Alt: 8296949628</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Hours & Location (4 cols) -->
+        <div class="md:col-span-4 space-y-1.5 text-left">
+          <h5 class="font-cyber font-bold text-slate-900 text-[11px] uppercase tracking-wider">
+            Workshop Operating Info
+          </h5>
+          <div class="space-y-1 text-xs text-slate-600">
+            <div class="flex items-start gap-2">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i>
+              <div>
+                <p class="font-bold text-slate-800 text-[11px]">Mon – Sat: 8:30 AM – 8:30 PM</p>
+                <p class="text-slate-500 text-[10px]">Sunday: 9:00 AM – 2:00 PM</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2 pt-0.5">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5"></i>
+              <p class="text-slate-700 text-[11px]">
+                Near Neharu Chowk Main Road, Chitguppa 585-412
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-100 pt-2.5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-1">
+        <p>© 2026 Kartik Service Centre. All Rights Reserved.</p>
+        <p class="font-medium text-slate-600">
+          Founder: <span class="font-bold text-slate-800">Kartik</span> (Experienced Mechanic) • Chitguppa
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       FLOATING ACTION DOCK (SUBTLE, BOTTOM RIGHT)
+       ========================================================================= -->
+  <div class="floating-dock">
+    <!-- Call Button -->
+    <a href="tel:6363176145" class="dock-btn dock-btn-call" title="Call Kartik 6363176145">
+      <i data-lucide="phone-call" class="w-4 h-4"></i>
+      <span class="dock-tooltip">Call: 6363176145</span>
+    </a>
+
+    <!-- Real WhatsApp Button -->
+    <a href="https://wa.me/916363176145?text=Hello%20Kartik,%20I%20would%20like%20to%20inquire%20about%20bike%20servicing." target="_blank" rel="noopener" class="dock-btn dock-btn-whatsapp" title="WhatsApp 6363176145">
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.19 1.564 5.946l-1.664 6.082 6.262-1.642c1.711.935 3.682 1.474 5.782 1.474 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+      </svg>
+      <span class="dock-tooltip">WhatsApp: 6363176145</span>
+    </a>
+  </div>
+
+  <!-- =========================================================================
+       3D MACHINERY INSPECTION MODAL (WITH PROMINENT CLOSE ICON)
+       ========================================================================= -->
+  <div id="inspection-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900/40 backdrop-blur-md">
+    
+    <div class="modal-content-box w-full max-w-3xl max-h-[92vh] overflow-y-auto flex flex-col">
+      
+      <!-- Sticky Modal Header with Prominent Close Button -->
+      <div class="modal-sticky-header">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          </div>
+          <div>
+            <h3 id="modal-machine-title" class="text-xs sm:text-sm font-bold font-cyber text-slate-900">
+              Machine 3D Studio
+            </h3>
+            <span id="modal-machine-tag" class="text-[10px] font-tech text-blue-600 font-semibold block">
+              3D Interactive View
+            </span>
+          </div>
+        </div>
+
+        <!-- Prominent Sticky Close Button (✕) -->
+        <button class="close-modal-btn modal-close-icon-btn" aria-label="Close 3D Viewer" title="Close (ESC)">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 space-y-4">
+        
+        <!-- 3D Canvas Box -->
+        <div class="relative w-full h-64 sm:h-72 rounded-xl overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border border-slate-200">
+          <canvas id="modal-3d-canvas" class="w-full h-full block"></canvas>
+          
+          <!-- On-Canvas Controls (Zoom / Reset) -->
+          <div class="absolute bottom-2.5 right-2.5 flex items-center gap-1 bg-white/90 backdrop-blur-md p-1 rounded-lg border border-slate-200 shadow-sm">
+            <button id="modal-zoom-in" class="p-1 rounded hover:bg-slate-100 text-slate-700" title="Zoom In">
+              <i data-lucide="zoom-in" class="w-3 h-3"></i>
+            </button>
+            <button id="modal-zoom-out" class="p-1 rounded hover:bg-slate-100 text-slate-700" title="Zoom Out">
+              <i data-lucide="zoom-out" class="w-3 h-3"></i>
+            </button>
+            <button id="modal-reset-view" class="p-1 rounded hover:bg-slate-100 text-slate-700" title="Reset View">
+              <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+            </button>
+          </div>
+
+          <div class="absolute top-2.5 left-2.5 text-[9px] font-tech font-bold text-slate-500 bg-white/80 px-2 py-0.5 rounded-full border border-slate-200">
+            Drag to Rotate • Smooth Orbit
+          </div>
+        </div>
+
+        <!-- Machine Technical Specs -->
+        <div class="space-y-1.5">
+          <h4 class="text-[10px] font-bold font-cyber text-slate-700 uppercase tracking-wider">
+            Technical Specifications
+          </h4>
+          <div id="modal-machine-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <!-- Dynamic specs inserted here -->
+          </div>
+        </div>
+
+        <!-- Key Engineering Features -->
+        <div class="space-y-1.5">
+          <h4 class="text-[10px] font-bold font-cyber text-slate-700 uppercase tracking-wider">
+            Workshop Advantages & Performance
+          </h4>
+          <ul id="modal-machine-features" class="space-y-1">
+            <!-- Dynamic features inserted here -->
+          </ul>
+        </div>
+
+        <!-- Maintenance & Calibration Routine -->
+        <div class="p-2.5 bg-blue-50 rounded-lg border border-blue-100 flex items-start gap-2">
+          <div class="text-blue-600 mt-0.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i></div>
+          <div>
+            <span class="text-[11px] font-bold text-blue-900 block font-tech">Kartik's Workshop Maintenance Routine</span>
+            <p id="modal-machine-tip" class="text-[11px] text-blue-800 font-tech mt-0.5 leading-relaxed">
+              Inspected, oiled, and safety tested before every major engine service.
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer Actions with Bottom Close Button -->
+        <div class="pt-1 flex items-center justify-end border-t border-slate-100">
+          <!-- Prominent Bottom Close Button -->
+          <button class="close-modal-btn btn-secondary w-full sm:w-auto text-xs py-2 px-5 text-center justify-center">
+            <i data-lucide="x" class="w-3.5 h-3.5 mr-1 inline"></i>
+            <span>Close 3D View</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       GALLERY LIGHTBOX
+       ========================================================================= -->
+  <div id="gallery-lightbox" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+    <div class="relative max-w-3xl max-h-[90vh] bg-white rounded-xl overflow-hidden shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between p-3 border-b border-slate-100">
+        <h4 id="lightbox-caption" class="text-xs sm:text-sm font-bold font-cyber text-slate-800">Workshop Photo</h4>
+        <button class="close-lightbox-btn p-1 rounded-lg hover:bg-slate-100 text-slate-600" aria-label="Close Lightbox">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div class="p-2 overflow-auto flex items-center justify-center bg-slate-50">
+        <img id="lightbox-img" src="" alt="Full view" class="max-h-[75vh] w-auto object-contain rounded-lg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Royal Midnight Shield Gradient -->
+    <radialGradient id="shieldGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="70%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <!-- Precision Racing Cobalt Gradient -->
+    <linearGradient id="cobaltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Warm Amber / Gold Metallic Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#f59e0b" />
+      <stop offset="70%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <!-- Polished Chrome Gradient -->
+    <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#e2e8f0" />
+      <stop offset="65%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <!-- Badge Drop Shadow Filter -->
+    <filter id="badgeShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Outer Mechanical Shield / Hexagon with Shadow -->
+  <polygon points="256,18 472,96 472,360 256,494 40,360 40,96" 
+           fill="url(#shieldGrad)" 
+           stroke="url(#cobaltGrad)" 
+           stroke-width="12" 
+           stroke-linejoin="round"
+           filter="url(#badgeShadow)" />
+
+  <!-- Inner Polished Chrome Accent Rim -->
+  <polygon points="256,38 450,108 450,346 256,468 62,346 62,108" 
+           fill="none" 
+           stroke="url(#chromeGrad)" 
+           stroke-width="3" 
+           stroke-opacity="0.65" />
+
+  <!-- Outer Mechanical Cog / Gear Teeth (Golden Amber) -->
+  <g fill="url(#goldGrad)" opacity="0.95">
+    <rect x="246" y="58" width="20" height="26" rx="4" />
+    <rect x="246" y="426" width="20" height="26" rx="4" />
+    <rect x="68" y="246" width="26" height="20" rx="4" />
+    <rect x="418" y="246" width="26" height="20" rx="4" />
+    <rect x="120" y="120" width="22" height="22" rx="4" transform="rotate(45 131 131)" />
+    <rect x="370" y="120" width="22" height="22" rx="4" transform="rotate(45 381 131)" />
+    <rect x="120" y="370" width="22" height="22" rx="4" transform="rotate(45 131 381)" />
+    <rect x="370" y="370" width="22" height="22" rx="4" transform="rotate(45 381 381)" />
+  </g>
+
+  <!-- Gear Wheel Inner Ring -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#chromeGrad)" stroke-width="12" stroke-opacity="0.35" />
+  <circle cx="256" cy="256" r="145" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-dasharray="10, 8" />
+
+  <!-- Crossed Servicing Wrenches (Panas) in Background -->
+  <g stroke="url(#chromeGrad)" stroke-width="14" stroke-linecap="round" opacity="0.65">
+    <line x1="140" y1="140" x2="372" y2="372" />
+    <line x1="372" y1="140" x2="140" y2="372" />
+  </g>
+
+  <!-- Iconic Stylized "K" Monogram (Kartik) with Racing Slits -->
+  <!-- Left Vertical Spine of K -->
+  <polygon points="170,140 215,140 215,372 170,372" fill="url(#cobaltGrad)" />
+  <polygon points="175,145 185,145 185,367 175,367" fill="#ffffff" opacity="0.75" />
+
+  <!-- Upper Diagonal Wing of K -->
+  <polygon points="215,260 305,140 365,140 255,275" fill="url(#cobaltGrad)" />
+  <polygon points="310,145 355,145 260,265 240,265" fill="#ffffff" opacity="0.6" />
+
+  <!-- Lower Diagonal Wing of K (Warm Amber Gold) -->
+  <polygon points="235,250 355,372 295,372 195,275" fill="url(#goldGrad)" />
+
+  <!-- Speed Slash Cut Through Center -->
+  <polygon points="145,252 385,242 380,256 140,266" fill="#0f172a" />
+
+  <!-- Center Core Nut / Bolt Accent -->
+  <circle cx="256" cy="256" r="18" fill="#1e293b" stroke="url(#goldGrad)" stroke-width="6" />
+
+  <!-- Badge Typography -->
+  <text x="256" y="420" 
+        font-family="'Orbitron', sans-serif" 
+        font-size="28" 
+        font-weight="900" 
+        fill="#ffffff" 
+        letter-spacing="6" 
+        text-anchor="middle">
+    KARTIK
+  </text>
+  <text x="256" y="445" 
+        font-family="'Space Grotesk', sans-serif" 
+        font-size="16" 
+        font-weight="700" 
+        fill="url(#goldGrad)" 
+        letter-spacing="4" 
+        text-anchor="middle">
+    SERVICE CENTRE
+  </text>
+</svg>

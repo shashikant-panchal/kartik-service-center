@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favShield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="favCobalt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <polygon points="32,2 59,12 59,45 32,62 5,45 5,12" fill="url(#favShield)" stroke="url(#favCobalt)" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="url(#favGold)" stroke-width="1.8" stroke-dasharray="4, 3"/>
+  <!-- K Monogram -->
+  <polygon points="21,18 27,18 27,46 21,46" fill="url(#favCobalt)"/>
+  <polygon points="27,33 38,18 45,18 32,35" fill="url(#favCobalt)"/>
+  <polygon points="30,32 44,46 37,46 25,35" fill="url(#favGold)"/>
+</svg>

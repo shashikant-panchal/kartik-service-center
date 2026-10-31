@@ -1,0 +1,439 @@
+/* ==========================================================================
+   Kartik Service Centre - Modern Light Theme with Compact Vertical Spacing
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-page: #f8fafc;
+  --bg-surface: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.94);
+  
+  /* Primary Automotive Brand Accents */
+  --brand-cobalt: #2563eb;
+  --brand-cobalt-dark: #1d4ed8;
+  --brand-navy: #0f172a;
+  --brand-amber: #f59e0b;
+
+  /* Sophisticated Servicing Pastels */
+  --pastel-blue-bg: #eff6ff;
+  --pastel-blue-border: #bfdbfe;
+  --pastel-blue-text: #1d4ed8;
+
+  --pastel-mint-bg: #ecfdf5;
+  --pastel-mint-border: #a7f3d0;
+  --pastel-mint-text: #047857;
+
+  --pastel-amber-bg: #fffbeb;
+  --pastel-amber-border: #fde68a;
+  --pastel-amber-text: #b45309;
+
+  --pastel-purple-bg: #f5f3ff;
+  --pastel-purple-border: #ddd6fe;
+  --pastel-purple-text: #6d28d9;
+
+  /* Borders & Shadows */
+  --border-subtle: #e2e8f0;
+  --border-card: rgba(226, 232, 240, 0.9);
+  --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  --shadow-md: 0 6px 18px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+
+  /* Typography */
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  --whatsapp-real: #25D366;
+  --whatsapp-hover: #20ba5a;
+}
+
+/* Base Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+    linear-gradient(to bottom, #f8fafc, #f1f5f9 50%, #f8fafc 100%);
+  background-attachment: fixed;
+}
+
+.font-cyber {
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 0.03em;
+}
+
+.font-tech {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide Scrollbar for Horizontal Carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Floating 3D Tools Canvas (15 Dedicated Workshop Tools) */
+#floating-tools-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Precision Light Grid Pattern */
+.light-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+}
+
+/* Modern Compact Light Cards */
+.light-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.light-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+/* Refined Pastel Badges */
+.pastel-badge-blue {
+  background-color: var(--pastel-blue-bg);
+  border: 1px solid var(--pastel-blue-border);
+  color: var(--pastel-blue-text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pastel-badge-mint {
+  background-color: var(--pastel-mint-bg);
+  border: 1px solid var(--pastel-mint-border);
+  color: var(--pastel-mint-text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pastel-badge-amber {
+  background-color: var(--pastel-amber-bg);
+  border: 1px solid var(--pastel-amber-border);
+  color: var(--pastel-amber-text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pastel-badge-purple {
+  background-color: var(--pastel-purple-bg);
+  border: 1px solid var(--pastel-purple-border);
+  color: var(--pastel-purple-text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 3D Canvas Box for Machines in Light Theme (Ultra-Compact Spacing) */
+.canvas-3d-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  touch-action: pan-y;
+}
+
+@media (max-width: 640px) {
+  .canvas-3d-container {
+    height: 132px;
+  }
+}
+
+.canvas-3d-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: 0 3px 12px rgba(37, 99, 235, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(37, 99, 235, 0.35);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-main);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: var(--brand-cobalt);
+}
+
+/* Real WhatsApp CTA Button (Authentic #25D366) */
+.btn-whatsapp-real {
+  background: #25D366;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-whatsapp-real:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.42);
+  color: #ffffff;
+}
+
+/* Carousel Card Style */
+.carousel-card {
+  min-width: 290px;
+  max-width: 320px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .carousel-card {
+    min-width: 330px;
+    max-width: 350px;
+  }
+}
+
+/* Kartik's Portrait Frame in Light Mode */
+.kartik-frame-light {
+  position: relative;
+  padding: 5px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2563eb 0%, #f1f5f9 50%, #f59e0b 100%);
+  box-shadow: var(--shadow-md);
+}
+
+/* Floating Action Dock (Subtle Bottom Right) */
+.floating-dock {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dock-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.dock-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.dock-btn-call {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 3px 14px rgba(37, 99, 235, 0.3);
+}
+
+.dock-btn-whatsapp {
+  background: #25D366;
+  box-shadow: 0 3px 14px rgba(37, 211, 102, 0.35);
+}
+
+.dock-btn-whatsapp:hover {
+  background: #20ba5a;
+}
+
+.dock-btn .dock-tooltip {
+  position: absolute;
+  right: 60px;
+  background: #0f172a;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dock-btn:hover .dock-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Modal & Lightbox in Light Mode */
+#inspection-modal, #gallery-lightbox {
+  transition: opacity 0.22s ease, visibility 0.22s;
+}
+
+#inspection-modal.active, #gallery-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-content-box {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+}
+
+.modal-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Prominent Close Button */
+.modal-close-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.15);
+}
+
+.modal-close-icon-btn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
