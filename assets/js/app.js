@@ -27,6 +27,7 @@ class FloatingTools3DEngine {
   }
 
   init() {
+    window.floatingToolsEngine = this;
     this.scene = new THREE.Scene();
     const isMobile = window.innerWidth < 640;
     this.camera = new THREE.PerspectiveCamera(isMobile ? 50 : 45, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -36,10 +37,13 @@ class FloatingTools3DEngine {
       canvas: this.canvas,
       alpha: true,
       antialias: true,
-      powerPreference: 'high-performance'
+      powerPreference: 'high-performance',
+      stencil: false,
+      depth: true
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Capping pixel ratio to 1.5 prevents GPU fill-rate throttling on high-DPI screens
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.25;
 
@@ -118,7 +122,35 @@ class FloatingTools3DEngine {
     }, { passive: true });
 
     this.clock = new THREE.Clock();
+    this.isRunning = true;
+    this.isPausedByModal = false;
+    this.animId = null;
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.pause();
+      } else if (!this.isPausedByModal) {
+        this.resume();
+      }
+    });
+
     this.animate();
+  }
+
+  pause() {
+    this.isRunning = false;
+    if (this.animId) {
+      cancelAnimationFrame(this.animId);
+      this.animId = null;
+    }
+  }
+
+  resume() {
+    if (!this.isRunning && !this.isPausedByModal) {
+      this.isRunning = true;
+      this.clock.start();
+      this.animate();
+    }
   }
 
   // -------------------------------------------------------------
@@ -663,7 +695,8 @@ class FloatingTools3DEngine {
   }
 
   animate() {
-    requestAnimationFrame(() => this.animate());
+    if (!this.isRunning || this.isPausedByModal) return;
+    this.animId = requestAnimationFrame(() => this.animate());
 
     const elapsedTime = this.clock.getElapsedTime();
 
@@ -1376,27 +1409,89 @@ const RealisticModelFactory = {
 };
 
 // ============================================================================
-// 4. MACHINERY CARDS VIEWER
+// 4. MACHINERY CARDS VIEWER (HARDWARE ACCELERATED & VIEWPORT CULLED)
 // ============================================================================
 class MachineCardsViewer {
   constructor() {
+    window.machineCardsViewer = this;
     this.containers = document.querySelectorAll('.canvas-3d-container');
     this.viewers = [];
+    this.observer = null;
+    this.isPausedByModal = false;
     this.init();
   }
 
   init() {
     if (!this.containers.length || typeof THREE === 'undefined') return;
 
+    // Viewport Culling with IntersectionObserver:
+    // Only render cards currently visible on screen. Off-screen cards halt their RAF loops.
+    // rootMargin expands 120px to ensure smooth, zero-latency transitions while scrolling.
+    if ('IntersectionObserver' in window) {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const viewer = entry.target.__viewerInstance;
+          if (!viewer) return;
+          if (entry.isIntersecting) {
+            viewer.isVisibleInViewport = true;
+            if (!this.isPausedByModal && !document.hidden) {
+              viewer.start();
+            }
+          } else {
+            viewer.isVisibleInViewport = false;
+            viewer.stop();
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '120px 0px 120px 0px',
+        threshold: 0.05
+      });
+    }
+
     this.containers.forEach((container) => {
       const machineType = container.getAttribute('data-machine');
       const viewer = this.createViewer(container, machineType);
-      if (viewer) this.viewers.push(viewer);
+      if (viewer) {
+        container.__viewerInstance = viewer;
+        this.viewers.push(viewer);
+        if (this.observer) {
+          this.observer.observe(container);
+        } else {
+          // Fallback if browser lacks IntersectionObserver
+          viewer.start();
+        }
+      }
+    });
+
+    // Suspend card renders when document/tab is hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.viewers.forEach(v => v.stop());
+      } else if (!this.isPausedByModal) {
+        this.viewers.forEach(v => {
+          if (v.isVisibleInViewport || !this.observer) v.start();
+        });
+      }
     });
 
     window.addEventListener('resize', () => {
       this.viewers.forEach(v => v.handleResize());
-    });
+    }, { passive: true });
+  }
+
+  pauseAll() {
+    this.isPausedByModal = true;
+    this.viewers.forEach(v => v.stop());
+  }
+
+  resumeAll() {
+    this.isPausedByModal = false;
+    if (!document.hidden) {
+      this.viewers.forEach(v => {
+        if (v.isVisibleInViewport || !this.observer) v.start();
+      });
+    }
   }
 
   createViewer(container, type) {
@@ -1406,9 +1501,16 @@ class MachineCardsViewer {
     const camera = new THREE.PerspectiveCamera(isMobile ? 50 : 45, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.set(0, 0.8, isMobile ? 5.2 : 4.4);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance',
+      stencil: false,
+      depth: true
+    });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Capping pixel ratio to 1.5 saves up to 50% fragment shading load on Retina/high-DPI screens
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
     container.appendChild(renderer.domElement);
@@ -1468,8 +1570,12 @@ class MachineCardsViewer {
     window.addEventListener('touchend', endDrag);
 
     const clock = new THREE.Clock();
+    let isRunning = false;
+    let animId = null;
+
     const animate = () => {
-      requestAnimationFrame(animate);
+      if (!isRunning) return;
+      animId = requestAnimationFrame(animate);
       const delta = clock.getDelta();
 
       if (!isDragging) {
@@ -1484,10 +1590,25 @@ class MachineCardsViewer {
 
       renderer.render(scene, camera);
     };
-    animate();
 
     return {
+      isVisibleInViewport: false,
+      start: () => {
+        if (!isRunning) {
+          isRunning = true;
+          clock.start();
+          animate();
+        }
+      },
+      stop: () => {
+        isRunning = false;
+        if (animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+      },
       handleResize: () => {
+        if (!container.clientWidth || !container.clientHeight) return;
         const mob = window.innerWidth < 640;
         camera.fov = mob ? 50 : 45;
         camera.position.z = mob ? 5.2 : 4.4;
@@ -1599,10 +1720,12 @@ class Fullscreen3DInspector {
       canvas: this.canvas,
       antialias: true,
       alpha: true,
-      powerPreference: 'high-performance'
+      powerPreference: 'high-performance',
+      stencil: false,
+      depth: true
     });
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.25;
 
@@ -1698,6 +1821,16 @@ class Fullscreen3DInspector {
     const data = MACHINERY_DATA[type];
     if (!data) return;
 
+    // Hardware Acceleration: pause background Three.js renderers
+    // to give 100% of the GPU hardware budget to the modal inspection
+    if (window.floatingToolsEngine) {
+      window.floatingToolsEngine.isPausedByModal = true;
+      window.floatingToolsEngine.pause();
+    }
+    if (window.machineCardsViewer) {
+      window.machineCardsViewer.pauseAll();
+    }
+
     this.currentType = type;
     this.isOpen = true;
     this.modal.classList.add('active');
@@ -1753,6 +1886,15 @@ class Fullscreen3DInspector {
     }
     this.modal.classList.remove('active');
     document.body.style.overflow = '';
+
+    // Resume background engine & visible card loops
+    if (window.floatingToolsEngine) {
+      window.floatingToolsEngine.isPausedByModal = false;
+      window.floatingToolsEngine.resume();
+    }
+    if (window.machineCardsViewer) {
+      window.machineCardsViewer.resumeAll();
+    }
   }
 }
 
@@ -1961,8 +2103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  new FloatingTools3DEngine();
-  new MachineCardsViewer();
-  new Fullscreen3DInspector();
-  new WorkshopGallery();
+  window.floatingToolsEngine = new FloatingTools3DEngine();
+  window.machineCardsViewer = new MachineCardsViewer();
+  window.fullscreenInspector = new Fullscreen3DInspector();
+  window.workshopGallery = new WorkshopGallery();
 });
