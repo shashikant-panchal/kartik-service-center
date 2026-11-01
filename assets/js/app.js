@@ -1708,17 +1708,17 @@ class Fullscreen3DInspector {
 
     if (this.specsEl) {
       this.specsEl.innerHTML = data.specs.map(s => `
-        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-          <span class="text-[11px] font-tech text-slate-500 uppercase block">${s.label}</span>
-          <span class="text-xs sm:text-sm font-tech font-bold text-slate-800">${s.value}</span>
+        <div class="p-3 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800/80 hover:border-blue-500 dark:hover:border-cyan-500/40 transition-colors">
+          <span class="text-[10px] font-tech text-blue-600 dark:text-cyan-400 font-bold uppercase tracking-wider block">${s.label}</span>
+          <span class="text-xs sm:text-sm font-tech font-bold text-slate-800 dark:text-slate-100">${s.value}</span>
         </div>
       `).join('');
     }
 
     if (this.featuresEl) {
       this.featuresEl.innerHTML = data.features.map(f => `
-        <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-tech">
-          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0"></span>
+        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-tech">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-cyan-400 mt-1.5 shrink-0 shadow-[0_0_8px_rgba(0,240,255,0.8)]"></span>
           <span>${f}</span>
         </li>
       `).join('');
@@ -1821,11 +1821,9 @@ class WorkshopGallery {
     this.filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         this.filterBtns.forEach(b => {
-          b.classList.remove('active', 'bg-blue-600', 'text-white');
-          b.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+          b.classList.remove('active');
         });
-        btn.classList.add('active', 'bg-blue-600', 'text-white');
-        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+        btn.classList.add('active');
 
         const cat = btn.getAttribute('data-filter');
         this.cards.forEach((card) => {
@@ -1877,9 +1875,77 @@ class WorkshopGallery {
 }
 
 // ============================================================================
-// 7. INITIALIZE ON DOM READY
+// 7. THEME MANAGER (LIGHT / DARK SWITCHER WITH LOCALSTORAGE PERSISTENCE)
+// ============================================================================
+class ThemeManager {
+  constructor() {
+    this.toggleBtn = document.getElementById('theme-toggle');
+    this.toggleIcon = document.getElementById('theme-toggle-icon');
+    this.mobileToggleBtn = document.getElementById('mobile-theme-toggle');
+    this.mobileToggleIcon = document.getElementById('mobile-theme-toggle-icon');
+    this.mobileToggleText = document.getElementById('mobile-theme-text');
+    this.init();
+  }
+
+  init() {
+    // Initial check: default is light unless explicitly saved as 'dark'
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    this.updateUI();
+
+    if (this.toggleBtn) {
+      this.toggleBtn.addEventListener('click', () => this.toggle());
+    }
+    if (this.mobileToggleBtn) {
+      this.mobileToggleBtn.addEventListener('click', () => this.toggle());
+    }
+  }
+
+  isDark() {
+    return document.documentElement.classList.contains('dark');
+  }
+
+  toggle() {
+    const makeDark = !this.isDark();
+    if (makeDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    this.updateUI();
+  }
+
+  updateUI() {
+    const isDark = this.isDark();
+    const iconName = isDark ? 'sun' : 'moon';
+
+    if (this.toggleIcon) {
+      this.toggleIcon.setAttribute('data-lucide', iconName);
+    }
+    if (this.mobileToggleIcon) {
+      this.mobileToggleIcon.setAttribute('data-lucide', iconName);
+    }
+    if (this.mobileToggleText) {
+      this.mobileToggleText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+}
+
+// ============================================================================
+// 8. INITIALIZE ON DOM READY
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
+  new ThemeManager();
   if (typeof lucide !== 'undefined') lucide.createIcons();
 
   const mobileToggle = document.getElementById('mobile-menu-toggle');

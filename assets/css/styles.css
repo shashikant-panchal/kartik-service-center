@@ -1,55 +1,127 @@
 /* ==========================================================================
-   Kartik Service Centre - Modern Light Theme with Compact Vertical Spacing
+   Kartik Service Centre - Dual-Theme Master Stylesheet (Light & Dark Beast Mode)
+   Precision Engineering & Master Two-Wheeler Craftsmanship | Chitguppa
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+/* ==========================================================================
+   1. THEME TOKENS: LIGHT THEME (DEFAULT)
+   ========================================================================== */
 :root {
+  --bg-void: #f8fafc;
   --bg-page: #f8fafc;
-  --bg-surface: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-nav: rgba(255, 255, 255, 0.94);
-  
-  /* Primary Automotive Brand Accents */
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.96);
+  --bg-card-hover: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.92);
+
+  /* Primary Automotive Brand Accents (Vivid & Clear) */
   --brand-cobalt: #2563eb;
-  --brand-cobalt-dark: #1d4ed8;
-  --brand-navy: #0f172a;
-  --brand-amber: #f59e0b;
+  --brand-cobalt-light: #3b82f6;
+  --brand-cobalt-glow: rgba(37, 99, 235, 0.2);
 
-  /* Sophisticated Servicing Pastels */
-  --pastel-blue-bg: #eff6ff;
-  --pastel-blue-border: #bfdbfe;
-  --pastel-blue-text: #1d4ed8;
+  --neon-cyan: #0284c7;
+  --neon-cyan-glow: rgba(2, 132, 199, 0.15);
+  --neon-amber: #d97706;
+  --neon-amber-glow: rgba(217, 119, 6, 0.15);
+  --neon-orange: #ea580c;
+  --neon-emerald: #059669;
+  --neon-emerald-glow: rgba(5, 150, 105, 0.15);
+  --neon-purple: #7c3aed;
 
-  --pastel-mint-bg: #ecfdf5;
-  --pastel-mint-border: #a7f3d0;
-  --pastel-mint-text: #047857;
-
-  --pastel-amber-bg: #fffbeb;
-  --pastel-amber-border: #fde68a;
-  --pastel-amber-text: #b45309;
-
-  --pastel-purple-bg: #f5f3ff;
-  --pastel-purple-border: #ddd6fe;
-  --pastel-purple-text: #6d28d9;
-
-  /* Borders & Shadows */
+  /* Borders & Dividers */
   --border-subtle: #e2e8f0;
-  --border-card: rgba(226, 232, 240, 0.9);
-  --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
-  --shadow-md: 0 6px 18px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --border-card: #e2e8f0;
+  --border-card-hover: #93c5fd;
+  --border-glow: rgba(37, 99, 235, 0.3);
 
-  /* Typography */
-  --text-main: #0f172a;
+  /* Typography Colors */
+  --text-pure: #0f172a;
+  --text-main: #1e293b;
   --text-muted: #475569;
   --text-dim: #64748b;
+  --heading-color: #0f172a;
 
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 6px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 36px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+  --shadow-cyan-glow: 0 8px 24px rgba(37, 99, 235, 0.14);
+  --shadow-amber-glow: 0 8px 24px rgba(245, 158, 11, 0.14);
+
+  /* 3D Studio & Modal Environments */
+  --canvas-3d-bg: radial-gradient(circle at 50% 50%, #ffffff 0%, #edf2f7 100%);
+  --modal-bg: #ffffff;
+  --modal-header-bg: #ffffff;
+  --modal-canvas-bg: linear-gradient(to bottom, #f1f5f9 0%, #e2e8f0 100%);
+
+  /* WhatsApp Official */
   --whatsapp-real: #25D366;
-  --whatsapp-hover: #20ba5a;
+  --whatsapp-hover: #1ebd5a;
+  --whatsapp-glow: rgba(37, 211, 102, 0.35);
 }
 
-/* Base Resets */
+/* ==========================================================================
+   2. THEME TOKENS: DARK THEME (BEAST MODE)
+   ========================================================================== */
+html.dark {
+  --bg-void: #05080e;
+  --bg-page: #070b13;
+  --bg-surface: #0b111d;
+  --bg-surface-elevated: #0f1728;
+  --bg-card: rgba(13, 20, 34, 0.82);
+  --bg-card-hover: rgba(18, 28, 48, 0.94);
+  --bg-nav: rgba(7, 11, 19, 0.9);
+
+  /* High-Voltage Cyber Accents */
+  --brand-cobalt: #2563eb;
+  --brand-cobalt-light: #3b82f6;
+  --brand-cobalt-glow: rgba(37, 99, 235, 0.35);
+
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.28);
+  --neon-amber: #f59e0b;
+  --neon-amber-glow: rgba(245, 158, 11, 0.3);
+  --neon-orange: #ff6a00;
+  --neon-emerald: #10b981;
+  --neon-emerald-glow: rgba(16, 185, 129, 0.35);
+  --neon-purple: #8b5cf6;
+
+  /* Titanium & Dark Carbon Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(56, 80, 117, 0.35);
+  --border-card-hover: rgba(0, 240, 255, 0.45);
+  --border-glow: rgba(0, 240, 255, 0.4);
+
+  /* Typography Colors */
+  --text-pure: #ffffff;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --heading-color: #ffffff;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 30px -4px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 48px -6px rgba(0, 0, 0, 0.75);
+  --shadow-cyan-glow: 0 0 24px rgba(0, 240, 255, 0.22);
+  --shadow-amber-glow: 0 0 24px rgba(245, 158, 11, 0.24);
+
+  /* 3D Studio & Modal Environments */
+  --canvas-3d-bg: 
+    radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.14) 0%, transparent 68%),
+    radial-gradient(circle at 50% 120%, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
+    linear-gradient(to bottom, #090f1b 0%, #05080f 100%);
+  --modal-bg: #0b111e;
+  --modal-header-bg: rgba(11, 17, 30, 0.95);
+  --modal-canvas-bg: linear-gradient(to bottom, #090f1d 0%, #05080e 100%);
+}
+
+/* ==========================================================================
+   3. Base Resets & Transitions
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -60,47 +132,66 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  background-color: var(--bg-void);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
-  background-color: var(--bg-page);
+  background-color: var(--bg-void);
   color: var(--text-main);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
   position: relative;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
-    linear-gradient(to bottom, #f8fafc, #f1f5f9 50%, #f8fafc 100%);
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(37, 99, 235, 0.05) 0%, transparent 70%),
+    radial-gradient(circle at 90% 20%, rgba(2, 132, 199, 0.04) 0%, transparent 50%),
+    linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
   background-attachment: fixed;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark body {
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(37, 99, 235, 0.16) 0%, transparent 70%),
+    radial-gradient(circle at 90% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 10% 45%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(37, 99, 235, 0.12) 0%, transparent 60%),
+    linear-gradient(to bottom, #05080e 0%, #070b13 50%, #05080e 100%);
 }
 
 .font-cyber {
   font-family: 'Orbitron', monospace;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .font-tech {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Custom Clean Scrollbar */
+/* Scrollbars */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--bg-void);
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--brand-cobalt);
 }
 
-/* Hide Scrollbar for Horizontal Carousel */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -109,7 +200,7 @@ body {
   scrollbar-width: none;
 }
 
-/* Floating 3D Tools Canvas (15 Dedicated Workshop Tools) */
+/* Floating 3D Tools Canvas */
 #floating-tools-canvas {
   position: fixed;
   top: 0;
@@ -120,102 +211,212 @@ body {
   z-index: 1;
 }
 
-/* Precision Light Grid Pattern */
-.light-grid {
-  background-size: 36px 36px;
+/* Grid Patterns */
+.cyber-grid, .light-grid {
+  background-size: 38px 38px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+html.dark .cyber-grid, html.dark .light-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
-/* Modern Compact Light Cards */
-.light-card {
+/* ==========================================================================
+   4. Cards & Glassmorphic Surfaces
+   ========================================================================= */
+.beast-card, .light-card {
   background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-card);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
   position: relative;
-  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
-.light-card:hover {
-  transform: translateY(-2px);
-  border-color: #cbd5e1;
-  box-shadow: var(--shadow-md);
+/* Specular Top Reflection Edge */
+.beast-card::before, .light-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  pointer-events: none;
+}
+html.dark .beast-card::before, html.dark .light-card::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 50%, transparent 100%);
 }
 
-/* Refined Pastel Badges */
-.pastel-badge-blue {
-  background-color: var(--pastel-blue-bg);
-  border: 1px solid var(--pastel-blue-border);
-  color: var(--pastel-blue-text);
+.beast-card:hover, .light-card:hover {
+  transform: translateY(-3px);
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-md), var(--shadow-cyan-glow);
+}
+
+/* Cyber Corner Notches */
+.hud-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(37, 99, 235, 0.3);
+  pointer-events: none;
+}
+html.dark .hud-corner {
+  border-color: rgba(0, 240, 255, 0.45);
+}
+.hud-corner-tl { top: 6px; left: 6px; border-top: 1.5px solid; border-left: 1.5px solid; }
+.hud-corner-tr { top: 6px; right: 6px; border-top: 1.5px solid; border-right: 1.5px solid; }
+.hud-corner-bl { bottom: 6px; left: 6px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+.hud-corner-br { bottom: 6px; right: 6px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+/* ==========================================================================
+   5. Badges
+   ========================================================================= */
+.cyber-badge-cyan, .pastel-badge-blue {
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.28);
+  color: #0284c7;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 7px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  text-transform: uppercase;
+}
+html.dark .cyber-badge-cyan, html.dark .pastel-badge-blue {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.35);
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.12);
 }
 
-.pastel-badge-mint {
-  background-color: var(--pastel-mint-bg);
-  border: 1px solid var(--pastel-mint-border);
-  color: var(--pastel-mint-text);
+.cyber-badge-amber, .pastel-badge-amber {
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  color: #b45309;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 7px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  text-transform: uppercase;
+}
+html.dark .cyber-badge-amber, html.dark .pastel-badge-amber {
+  background: rgba(245, 158, 11, 0.09);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.14);
 }
 
-.pastel-badge-amber {
-  background-color: var(--pastel-amber-bg);
-  border: 1px solid var(--pastel-amber-border);
-  color: var(--pastel-amber-text);
+.cyber-badge-emerald, .pastel-badge-mint {
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.28);
+  color: #047857;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 7px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  text-transform: uppercase;
+}
+html.dark .cyber-badge-emerald, html.dark .pastel-badge-mint {
+  background: rgba(16, 185, 129, 0.09);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.14);
 }
 
-.pastel-badge-purple {
-  background-color: var(--pastel-purple-bg);
-  border: 1px solid var(--pastel-purple-border);
-  color: var(--pastel-purple-text);
+.cyber-badge-purple, .pastel-badge-purple {
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  color: #6d28d9;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 7px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  text-transform: uppercase;
+}
+html.dark .cyber-badge-purple, html.dark .pastel-badge-purple {
+  background: rgba(139, 92, 246, 0.09);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #a78bfa;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.14);
 }
 
-/* 3D Canvas Box for Machines in Light Theme (Ultra-Compact Spacing) */
+/* Status Beacon */
+.status-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  position: relative;
+  box-shadow: 0 0 8px #10b981;
+}
+.status-beacon::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #10b981;
+  animation: beacon-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+@keyframes beacon-pulse {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ==========================================================================
+   6. 3D Machinery Viewport Container
+   ========================================================================== */
 .canvas-3d-container {
   position: relative;
   width: 100%;
-  height: 150px;
-  background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
-  border-radius: 12px;
+  height: 160px;
+  background: var(--canvas-3d-bg);
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
   touch-action: pan-y;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+html.dark .canvas-3d-container {
+  box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.04);
+}
+
+.canvas-3d-container:hover {
+  border-color: var(--neon-cyan);
 }
 
 @media (max-width: 640px) {
   .canvas-3d-container {
-    height: 132px;
+    height: 140px;
   }
 }
 
@@ -225,170 +426,211 @@ body {
   display: block;
 }
 
-/* Buttons */
-.btn-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+/* ==========================================================================
+   7. Buttons
+   ========================================================================== */
+.btn-beast-primary, .btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #1d4ed8 100%);
   color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
   padding: 10px 22px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  box-shadow: 0 3px 12px rgba(37, 99, 235, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(37, 99, 235, 0.35);
-  color: #ffffff;
-}
-
-.btn-secondary {
-  background: #ffffff;
-  color: var(--text-main);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  border-color: #cbd5e1;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-  color: var(--brand-cobalt);
-}
-
-/* Real WhatsApp CTA Button (Authentic #25D366) */
-.btn-whatsapp-real {
-  background: #25D366;
-  color: #ffffff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  padding: 10px 22px;
-  border-radius: 9px;
+  border-radius: 11px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.22s ease;
   cursor: pointer;
+  text-decoration: none;
 }
-
-.btn-whatsapp-real:hover {
-  background: #20ba5a;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.42);
+.btn-beast-primary:hover, .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.42);
   color: #ffffff;
 }
 
-/* Carousel Card Style */
+.btn-beast-secondary, .btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  padding: 10px 20px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.22s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-beast-secondary:hover, .btn-secondary:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--neon-cyan);
+}
+
+/* ==========================================================================
+   8. Founder Frame
+   ========================================================================== */
+.kartik-frame-light {
+  position: relative;
+  padding: 4px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #f59e0b 100%);
+  box-shadow: var(--shadow-md);
+}
+html.dark .kartik-frame-light {
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.25);
+}
+
+/* ==========================================================================
+   9. Carousel & Gallery
+   ========================================================================== */
 .carousel-card {
-  min-width: 290px;
-  max-width: 320px;
+  min-width: 285px;
+  max-width: 310px;
   flex-shrink: 0;
   scroll-snap-align: start;
 }
-
 @media (min-width: 640px) {
   .carousel-card {
-    min-width: 330px;
-    max-width: 350px;
+    min-width: 320px;
+    max-width: 340px;
   }
 }
 
-/* Kartik's Portrait Frame in Light Mode */
-.kartik-frame-light {
-  position: relative;
-  padding: 5px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #2563eb 0%, #f1f5f9 50%, #f59e0b 100%);
-  box-shadow: var(--shadow-md);
+.gallery-filter-btn {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+.gallery-filter-btn:hover {
+  border-color: var(--neon-cyan);
+  color: var(--text-pure);
+}
+.gallery-filter-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(37, 99, 235, 0.6) !important;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.3) !important;
 }
 
-/* Floating Action Dock (Subtle Bottom Right) */
+/* ==========================================================================
+   10. Floating Action Dock (The Only 2 Buttons)
+   ========================================================================== */
 .floating-dock {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
   z-index: 99;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .dock-btn {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  text-decoration: none;
+}
+html.dark .dock-btn {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 .dock-btn:hover {
-  transform: translateY(-2px) scale(1.06);
+  transform: translateY(-3px) scale(1.08);
 }
 
 .dock-btn-call {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  box-shadow: 0 3px 14px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+}
+.dock-btn-call::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  animation: call-pulse 2.2s infinite;
+}
+@keyframes call-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 .dock-btn-whatsapp {
-  background: #25D366;
-  box-shadow: 0 3px 14px rgba(37, 211, 102, 0.35);
+  background: linear-gradient(135deg, #25D366 0%, #1ea952 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
 }
-
-.dock-btn-whatsapp:hover {
-  background: #20ba5a;
+.dock-btn-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 211, 102, 0.5);
+  animation: whatsapp-pulse 2.2s infinite 0.5s;
+}
+@keyframes whatsapp-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 .dock-btn .dock-tooltip {
   position: absolute;
-  right: 60px;
+  right: 64px;
   background: #0f172a;
-  color: white;
+  color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.74rem;
-  padding: 4px 10px;
-  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(6px);
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateX(8px);
+  transition: all 0.22s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
-
 .dock-btn:hover .dock-tooltip {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Modal & Lightbox in Light Mode */
+/* ==========================================================================
+   11. 3D Inspection Modal & Lightbox
+   ========================================================================== */
 #inspection-modal, #gallery-lightbox {
-  transition: opacity 0.22s ease, visibility 0.22s;
+  transition: opacity 0.25s ease, visibility 0.25s;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+html.dark #inspection-modal, html.dark #gallery-lightbox {
+  background: rgba(4, 7, 13, 0.85);
 }
 
 #inspection-modal.active, #gallery-lightbox.active {
@@ -398,42 +640,66 @@ body {
 }
 
 .modal-content-box {
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  background: var(--modal-bg);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+html.dark .modal-content-box {
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 240, 255, 0.15);
 }
 
 .modal-sticky-header {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: #ffffff;
+  background: var(--modal-header-bg);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 12px 18px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Prominent Close Button */
 .modal-close-icon-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #0f172a;
-  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #1e293b;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: none;
-  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.15);
+  border: 1px solid var(--border-card);
+}
+html.dark .modal-close-icon-btn {
+  background: rgba(15, 23, 42, 0.9);
+  color: #f1f5f9;
+}
+.modal-close-icon-btn:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
-.modal-close-icon-btn:hover {
-  background: #2563eb;
-  transform: scale(1.05);
+/* ==========================================================================
+   12. Text Glows & Gradients
+   ========================================================================== */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.dark .text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 60%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.dark .text-glow-cyan {
+  text-shadow: 0 0 24px rgba(0, 240, 255, 0.4);
 }
